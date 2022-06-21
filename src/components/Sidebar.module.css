@@ -39,13 +39,22 @@
   line-height: 1.6;
 }
 
-.sidebar footer {
+.spans {
+  display: flex;
+  justify-content: space-between;
+}
+
+.spans:first-of-type {
+  color: var(--purple-300);
+}
+
+.tasks {
   border-top: 1px solid var(--gray-600);
   margin-top: 1.5rem;
   padding: 1.5rem 2rem 2rem;
 }
 
-.sidebar footer a {
+.tasks a {
   width: 100%;
   background: transparent;
   color: var(--green-500);
@@ -68,4 +77,24 @@
 .sidebar footer a:hover {
   background: var(--green-500);
   color: var(--white);
+}
+.todo input {
+  height: 3.25rem;
+  padding: 1rem;
+  background-color: var(--gray-600);
+  color: var(--white);
+  margin-right: 0.5rem;
+
+  border: 1px solid var(--gray-700);
+  border-radius: 0.5rem;
+}
+
+.todo button {
+  height: 3.25rem;
+  padding: 1rem;
+  background-color: var(--blue-500);
+  color: var(--white);
+
+  border: 0;
+  border-radius: 0.5rem;
 }
