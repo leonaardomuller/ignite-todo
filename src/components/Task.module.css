@@ -13,18 +13,7 @@
 .commentBox {
   flex: 1;
 }
-
-.commentContent {
-  background-color: var(--gray-700);
-  border-radius: 8px;
-  padding: 1rem;
-}
-
-.commentContent header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}
+/* 
 
 .authorAndTime {
   display: flex;
@@ -42,9 +31,16 @@
   font-size: 0.75rem;
   line-height: 1.6;
   color: var(--gray-400);
+} */
+
+.commentContent {
+  display: flex;
+  background-color: var(--gray-700);
+  border-radius: 8px;
+  padding: 1rem;
 }
 
-.commentContent header button {
+.commentContent button {
   background: transparent;
   border: 0;
   color: var(--gray-400);
@@ -54,12 +50,12 @@
   transition: 0.1s;
 }
 
-.commentContent header button:hover {
+.commentContent button:hover {
   color: var(--red-500);
 }
 
 .commentContent p {
-  margin-top: 1rem;
+  align-self: center;
   color: var(--gray-300);
 }
 

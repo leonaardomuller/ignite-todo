@@ -37,24 +37,45 @@
   font-size: 0.875rem;
   color: var(--gray-400);
   line-height: 1.6;
+  margin-right: 0.5rem;
 }
 
 .spans {
   display: flex;
   justify-content: space-between;
+  margin-top: 1.5rem;
 }
 
 .spans:first-of-type {
   color: var(--purple-300);
 }
 
+.count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 1.25rem;
+  width: 1.45rem;
+  border-radius: 8px;
+
+  background-color: var(--gray-600);
+}
+
 .tasks {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border-top: 1px solid var(--gray-600);
   margin-top: 1.5rem;
   padding: 1.5rem 2rem 2rem;
 }
+.tasks img {
+  margin-bottom: 1rem;
+}
 
-.tasks a {
+/* .tasks a {
   width: 100%;
   background: transparent;
   color: var(--green-500);
@@ -72,7 +93,7 @@
 
   gap: 0.5rem;
   transition: 0.1s;
-}
+} */
 
 .sidebar footer a:hover {
   background: var(--green-500);

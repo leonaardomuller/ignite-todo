@@ -3,7 +3,7 @@ import { ChangeEvent, FormEvent, InvalidEvent, useState } from "react";
 import { format, formatDistanceToNow } from "date-fns";
 import ptBR from "date-fns/locale/pt-BR";
 
-import { Comment } from "./Comment";
+import { Task } from "./Task";
 import { Avatar } from "./Avatar";
 import styles from "./Post.module.css";
 
@@ -117,7 +117,7 @@ export function Post({ author, content, publishedAt }: PostProps) {
       <div className={styles.commentList}>
         {comments.map((comment) => {
           return (
-            <Comment
+            <Task
               key={comment}
               content={comment}
               onDeleteComment={deleteComment}
