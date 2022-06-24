@@ -50,13 +50,27 @@
   color: var(--purple-300);
 }
 
-.count {
+.createdTasksCount {
   display: flex;
   align-items: center;
   justify-content: center;
 
   height: 1.25rem;
-  width: 1.45rem;
+  width: 100%;
+  max-width: 1.40rem;
+  border-radius: 8px;
+
+  background-color: var(--gray-600);
+}
+
+.completedTasksCount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 1.25rem;
+  width: 100%;
+  max-width: 3.5rem;
   border-radius: 8px;
 
   background-color: var(--gray-600);

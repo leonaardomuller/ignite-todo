@@ -1,18 +1,49 @@
-import { PencilLine } from "phosphor-react";
-// import { Avatar } from "./Avatar";
 import clipboard from "../assets/clipboard.svg";
 import { Task } from "./Task";
+import { v4 as uuidv4 } from "uuid";
 
 import styles from "./Sidebar.module.css";
-const tasks = [
-  { id: 1, isDone: false, content: "BLABLABLA" },
-  { id: 2, isDone: false, content: "BLBLBLBL" },
-  { id: 3, isDone: false, content: "GEETETTE" },
-];
+import { ChangeEvent, FormEvent, useState } from "react";
+import { TaskProps } from "./Task";
+
+export interface Task {
+  id: string;
+  content: string;
+  // onDeleteTask: (comment: number) => void;
+}
+
 export function Sidebar() {
-  function handleDeleteComment() {
-    console.log("Deleted");
+  
+  const [taskInputText, setTaskInputText] = useState("");
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const createdTasks = tasks.length
+
+  function handleCreateNewTask(event: FormEvent) {
+    event.preventDefault();
+    const newTask = {
+      id: uuidv4(),
+      content: taskInputText,
+    };
+    setTasks([...tasks, newTask]);
+    console.log(tasks);
+    setTaskInputText("");
   }
+
+  function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
+    event.target.setCustomValidity("");
+    setTaskInputText(event.target.value);
+  }
+
+  function deleteTask(idToDelete: string) {
+    const commentsWithoutDeletedOne = tasks.filter((task) => {
+      if (task.id !== idToDelete) {
+        return task;
+      }
+    });
+    console.log(commentsWithoutDeletedOne);
+    setTasks(commentsWithoutDeletedOne);
+  }
+
   return (
     <aside className={styles.sidebar}>
       <img
@@ -21,29 +52,35 @@ export function Sidebar() {
       />
       <div className={styles.profile}>
         <div className={styles.todo}>
-          <input placeholder="Adicione uma nova tarefa" type="text" />
-          <button>Criar (+)</button>
+          <input
+            value={taskInputText}
+            onChange={handleNewTaskChange}
+            placeholder="Adicione uma nova tarefa"
+            type="text"
+          />
+          <button onClick={handleCreateNewTask}>Criar (+)</button>
         </div>
         <div className={styles.spans}>
           <span>Tarefas criadas</span>
-          <div className={styles.count}>0</div>
+          <div className={styles.createdTasksCount}>{createdTasks}</div>
           <span>Concluidas</span>
-          <div className={styles.count}>0</div>
+          <div className={styles.completedTasksCount}>0 de {createdTasks}</div>
         </div>
       </div>
       <section className={styles.tasks}>
-        {tasks.map(({ id, content, isDone }) => {
-          return (
-            <Task
-              key={id}
-              content={content}
-              onDeleteComment={handleDeleteComment}
-            />
-          );
-        })}
-        {/* <img src={clipboard} alt="clipboard" />
-        <strong>Você ainda não tem tarefas cadastradas</strong>
-        <p>Crie tarefas e organize seus itens a fazer</p> */}
+        {tasks.length === 0 ? (
+          <>
+            <img src={clipboard} alt="clipboard" />
+            <strong>Você ainda não tem tarefas cadastradas</strong>
+            <p>Crie tarefas e organize seus itens a fazer</p>
+          </>
+        ) : (
+          tasks.map(({ id, content }) => {
+            return (
+              <Task key={id} id={id} content={content} onDeleteTask={deleteTask} />
+            );
+          })
+        )}
       </section>
     </aside>
   );
