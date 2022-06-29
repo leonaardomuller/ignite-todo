@@ -1,9 +1,0 @@
-.header {
-  background: var(--gray-800);
-  display: flex;
-  justify-content: center;
-}
-
-.header img {
-  height: 2rem;
-}

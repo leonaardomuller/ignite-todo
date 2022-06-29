@@ -4,10 +4,16 @@
   overflow: hidden;
 }
 
-.cover {
-  width: 100%;
-  height: 72px;
-  object-fit: cover;
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 12.5rem;
+  background-color: var(--gray-900);
+}
+
+header img {
+  height: 3rem;
 }
 
 .profile {
@@ -18,19 +24,10 @@
   margin-top: calc(0px - 1.5rem - 6px);
 }
 
-.avatar {
-  box-sizing: initial;
-  width: 3rem;
-  height: 3rem;
-  border-radius: 8px;
-  border: 4px solid var(--gray-800);
-  outline: 2px solid var(--green-500);
-}
-
 .profile strong {
-  margin-top: 1rem;
   color: var(--gray-100);
   line-height: 1.6;
+  margin-right: 0.5rem;
 }
 
 .profile span {
@@ -40,14 +37,22 @@
   margin-right: 0.5rem;
 }
 
-.spans {
+.createdAndCompletedTasks {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+  max-width: 46rem;
+  align-items: center;
   margin-top: 1.5rem;
 }
 
-.spans:first-of-type {
-  color: var(--purple-300);
+.taskBox {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+.taskBox:last-child {
+  justify-content: flex-end;
 }
 
 .createdTasksCount {
@@ -57,7 +62,7 @@
 
   height: 1.25rem;
   width: 100%;
-  max-width: 1.40rem;
+  max-width: 1.4rem;
   border-radius: 8px;
 
   background-color: var(--gray-600);
@@ -80,6 +85,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
   align-items: center;
   border-top: 1px solid var(--gray-600);
   margin-top: 1.5rem;
@@ -89,32 +95,15 @@
   margin-bottom: 1rem;
 }
 
-/* .tasks a {
-  width: 100%;
-  background: transparent;
-  color: var(--green-500);
-  border: 1px solid var(--green-500);
-  border-radius: 8px;
-  height: 50px;
-  padding: 0 1.5rem;
-  font-weight: bold;
-  display: block;
-  text-decoration: none;
-
+.todo {
   display: flex;
-  align-items: center;
-  justify-content: center;
-
-  gap: 0.5rem;
-  transition: 0.1s;
-} */
-
-.sidebar footer a:hover {
-  background: var(--green-500);
-  color: var(--white);
+  justify-content: space-between;
+  width: 100%;
+  max-width: 46rem;
 }
 .todo input {
   height: 3.25rem;
+  width: 100%;
   padding: 1rem;
   background-color: var(--gray-600);
   color: var(--white);
@@ -125,7 +114,11 @@
 }
 
 .todo button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 3.25rem;
+  min-width: 5.625rem;
   padding: 1rem;
   background-color: var(--blue-500);
   color: var(--white);
